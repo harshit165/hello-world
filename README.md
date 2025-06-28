@@ -1,2 +1,2 @@
 # hello-world
-I'm learning how to use GitHub!
+I'm creating a note taking app. 
