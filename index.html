@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern note-taking application">
+    <title>Note Taking App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">📝 Note Taking App</h1>
+                <div class="auth-buttons">
+                    <button id="loginBtn" class="btn btn-primary">Login</button>
+                    <button id="signupBtn" class="btn btn-secondary">Sign Up</button>
+                    <button id="logoutBtn" class="btn btn-danger" style="display: none;">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Auth Section -->
+            <div id="authSection" class="auth-section">
+                <div class="auth-container">
+                    <h2>Welcome to Your Notes</h2>
+                    <p>Please login or sign up to start taking notes</p>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div id="notesSection" class="notes-section" style="display: none;">
+                <div class="notes-header">
+                    <h2>My Notes</h2>
+                    <button id="addNoteBtn" class="btn btn-primary">+ New Note</button>
+                </div>
+                
+                <div class="notes-container" id="notesContainer">
+                    <!-- Notes will be dynamically added here -->
+                </div>
+            </div>
+        </main>
+
+        <!-- Modal for Add/Edit Note -->
+        <div id="noteModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Add New Note</h3>
+                    <button id="closeModal" class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="noteForm">
+                        <div class="form-group">
+                            <label for="noteTitle">Title</label>
+                            <input type="text" id="noteTitle" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noteContent">Content</label>
+                            <textarea id="noteContent" name="content" rows="8" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="cancelNote" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Note</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
